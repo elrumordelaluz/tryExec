@@ -2,7 +2,7 @@
   <img src="tryexec.png" width="250" />
 </p>
 
-<p align="center">Exec an <code>npm script</code>, <code>.bin</code> command, or othe CLI commands from <code>nodejs</code>, trying <code>x</code> times in case a condition doesn't meets</p>
+<p align="center">Exec an <code>npm script</code>, <code>.bin</code> command, or other CLI commands from <code>nodejs</code>, <br />trying <code>x</code> times in case a condition doesn't meets</p>
 
 ## Install
 
@@ -30,7 +30,7 @@ tryExec({
 ## API
 
 ```js
-tryExec(options?)
+tryExec(?options)
 ```
 
 ### Options

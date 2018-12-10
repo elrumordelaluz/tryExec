@@ -14,7 +14,7 @@ function customExecSync(cmd) {
 }
 
 function tryExec({
-  max = 3,
+  max = 5,
   interval = 1500,
   script = 'echo "Hello World"',
   check = () => false,

@@ -23,16 +23,32 @@ function tryExec({
   let currentAttemp = 1
 
   async function attemp() {
-    verbose && log(`👀  Trying to execute [${currentAttemp}]`)
+    const logString = typeof verbose === 'string'
+    verbose &&
+      log(
+        `👀  Trying to execute${
+          logString ? ` "${verbose}"` : ''
+        } /${currentAttemp}`
+      )
     if (await check()) {
-      return customExecSync(script)
+      return typeof script === 'function' ? script() : customExecSync(script)
     } else {
-      verbose && log(`📢  No way, trying again [${currentAttemp}]`)
+      verbose &&
+        log(
+          `📢  No way, trying again${
+            logString ? ` executing "${verbose}"` : ''
+          }`
+        )
       if (currentAttemp < max) {
         currentAttemp++
         setTimeout(attemp, interval)
       } else {
-        verbose && log(`💣  Max attemps [${max}] beaten. Exiting…`)
+        verbose &&
+          log(
+            `💣  Max attemps (${max}) beaten${
+              logString ? ` executing "${verbose}"` : ''
+            }. Exiting…`
+          )
         process.exit()
       }
     }

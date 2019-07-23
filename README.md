@@ -69,8 +69,8 @@ default: `() => false`
 
 #### verbose
 
-Log when attemps, number of each iteration and results
+Log when attemps, number of each iteration and results. Could be passed a `string` to log.
 
-type: `Boolean`
+type: `Boolean|String`
 
 default: `false`

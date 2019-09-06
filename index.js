@@ -31,7 +31,13 @@ function tryExec({
         } /${currentAttemp}`
       )
     if (await check()) {
-      return typeof script === 'function' ? script() : customExecSync(script)
+      try {
+        return typeof script === 'function' ? script() : customExecSync(script)
+      } catch (err) {
+        console.log({ err })
+      } finally {
+        process.exit()
+      }
     } else {
       verbose &&
         log(

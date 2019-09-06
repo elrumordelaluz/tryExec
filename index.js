@@ -34,9 +34,7 @@ function tryExec({
       try {
         return typeof script === 'function' ? script() : customExecSync(script)
       } catch (err) {
-        console.log({ err })
-      } finally {
-        process.exit()
+        process.exit(err.status)
       }
     } else {
       verbose &&

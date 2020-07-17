@@ -53,7 +53,7 @@ function tryExec({
               logString ? ` executing "${verbose}"` : ''
             }. Exiting…`
           )
-        throw new Error('Exiting')
+        process.exit()
       }
     }
   }
